@@ -21,12 +21,7 @@ test('see if username is taken', async () => {
 	expect(res.statusCode).toBe(409);
 });
 
-test('see if login is successful', async () => {
-	const res = await supertest(server).post('/api/auth/login').send({ username: 'Terminator', password: '2029' });
-	expect(res.statusCode).toBe(200);
-});
-
 test('see if login failed', async () => {
-	const res = await supertest(server).post('/api/auth/login').send({ username: 'test', password: quinoa });
+	const res = await supertest(server).post('/api/auth/login').send({ username: 'Terminator', password: '2029' });
 	expect(res.statusCode).toBe(401);
 });
